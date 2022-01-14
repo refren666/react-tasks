@@ -1,0 +1,26 @@
+.wrapper{
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+  "u p"
+  "c c"
+}
+
+.users {
+    grid-area: u;
+}
+
+.posts {
+    grid-area: p;
+}
+
+.comments {
+    grid-area: c;
+}
+
+.users,
+.posts,
+.comments {
+    border: 3px solid firebrick;
+    padding: 15px;
+}
