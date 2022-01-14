@@ -1,0 +1,20 @@
+.flight__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    padding: 0 50px;
+    margin: 15px 25px 0;
+}
+
+.flight__description {
+    width: 150px;
+}
+
+.mission__patch__image img {
+    max-width: 150px;
+}
+
+.flight__description {
+    text-align: center;
+}
