@@ -1,0 +1,16 @@
+.form {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.button {
+    border: none;
+    background: firebrick;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 3px 8px;
+}
