@@ -1,0 +1,26 @@
+.wrapper {
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+            'users userInfo'
+            'posts posts'
+}
+
+.usersBlock {
+    grid-area: users;
+}
+
+.userInfoBlock {
+    grid-area: userInfo;
+}
+
+.postsBlock {
+    grid-area: posts;
+}
+
+.usersBlock,
+.userInfoBlock,
+.postsBlock {
+    border: 2px solid firebrick;
+    padding: 5px;
+}

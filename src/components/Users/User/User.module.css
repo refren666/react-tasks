@@ -1,0 +1,14 @@
+.button {
+    border: none;
+    color: #fff;
+    background: firebrick;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.button:hover {
+    background: #fff;
+    color: firebrick;
+    outline: 2px solid firebrick;
+}
