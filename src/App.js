@@ -5,14 +5,10 @@ import Cars from "./components/Cars/Cars";
 const App = () => {
   const [trigger, setTrigger] = useState(null);
 
-  // when we add new car, it'll instantly appear on the page
-  const update = (data) => {
-    setTrigger(data)
-  }
-
   return (
     <div>
-      <Form update={update}/>
+      {/*setTrigger - when we add new car, it'll instantly appear on the page*/}
+      <Form setTrigger={setTrigger}/>
       <Cars trigger={trigger}/>
     </div>
   );

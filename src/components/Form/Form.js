@@ -5,7 +5,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {CarValidator} from "../../validators/car.validator";
 import classes from './Form.module.css'
 
-const Form = ({update}) => {
+const Form = ({setTrigger}) => {
   const [formError, setFormError] = useState({});
 
   const {
@@ -31,10 +31,9 @@ const Form = ({update}) => {
     try {
       const newCar = await carService.addCar(data);
       // console.log(newCar);
-      update(newCar)
+      setTrigger(newCar)
     } catch (error) {
       setFormError(error.response.data)
-      console.log(formError)
     }
   }
 
