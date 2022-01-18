@@ -1,9 +1,6 @@
 import Joi from "joi";
 
 export const InputValidator = Joi.object({
-  id: Joi.number().required().messages({
-    'number.base':'Enter valid ID'
-  }),
   model: Joi.string().regex(new RegExp(/^[a-zA-Z]{2,20}$/)).required().messages({
     'string.empty':'Field "Model" cannot be empty!',
     'string.pattern.base':'Field "Model" may contain only Latin characters (from 2 to 20)'

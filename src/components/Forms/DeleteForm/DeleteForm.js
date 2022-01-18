@@ -4,14 +4,17 @@ import {useForm} from "react-hook-form";
 import {carsService} from "../../../services/cars.service";
 import classes from '../Forms.module.css'
 
-const DeleteForm = () => {
+const DeleteForm = ({setTrigger}) => {
   const {
-    register, handleSubmit, formState: {errors}
+    register, handleSubmit
   } = useForm();
 
   const deleteCarById = (data) => {
     console.log({data})
-    carsService.deleteById(data.id).then(response => console.log(response))
+    carsService.deleteById(data.id).then(response => {
+      console.log(response)
+      setTrigger(response)
+    })
   }
 
   return (

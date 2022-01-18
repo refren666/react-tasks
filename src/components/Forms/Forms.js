@@ -1,14 +1,15 @@
 import React from 'react';
+
 import PostForm from "./PostForm/PostForm";
 import DeleteForm from "./DeleteForm/DeleteForm";
 import UpdateForm from "./UpdateForm/UpdateForm";
 
-const Forms = () => {
+const Forms = ({setTrigger}) => {
   return (
     <div>
-      <PostForm />
-      <DeleteForm />
-      <UpdateForm />
+      <PostForm setTrigger={setTrigger}/>
+      <DeleteForm setTrigger={setTrigger}/>
+      <UpdateForm setTrigger={setTrigger}/>
     </div>
   );
 };

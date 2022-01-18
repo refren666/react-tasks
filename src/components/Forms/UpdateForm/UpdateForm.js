@@ -4,9 +4,9 @@ import {useForm} from "react-hook-form";
 import {carsService} from "../../../services/cars.service";
 import classes from '../Forms.module.css'
 
-const UpdateForm = () => {
+const UpdateForm = ({setTrigger}) => {
   const {
-    register, handleSubmit, formState: {errors}
+    register, handleSubmit
   } = useForm();
 
   const update = (car) => {
@@ -20,7 +20,10 @@ const UpdateForm = () => {
       (car.model && {model: car.model})
        || (car.price && {price: car.price})
        || (car.year && {year: car.year}))
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response)
+        setTrigger(response)
+      })
       .catch(err => console.log(err.response.data))
   }
 
