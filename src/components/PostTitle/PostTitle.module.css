@@ -1,0 +1,8 @@
+.link {
+    color: steelblue;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: indianred;
+}
