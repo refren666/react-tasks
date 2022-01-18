@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {carsService} from "../../services/cars.service";
 import Car from "../Car/Car";
 
@@ -8,7 +9,10 @@ const Cars = () => {
   useEffect(() => {
     carsService
       .getAll()
-      .then(carsArr => setCars(carsArr))
+      .then(carsArr => {
+        setCars(carsArr)
+        console.log(carsArr)
+      })
   }, [])
 
   return (

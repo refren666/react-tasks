@@ -1,0 +1,30 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.form > span {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.button {
+    border: none;
+    background: firebrick;
+    color: white;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 7px;
+}

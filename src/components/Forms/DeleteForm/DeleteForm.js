@@ -1,6 +1,8 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
+
 import {carsService} from "../../../services/cars.service";
+import classes from '../Forms.module.css'
 
 const DeleteForm = () => {
   const {
@@ -9,22 +11,25 @@ const DeleteForm = () => {
 
   const deleteCarById = (data) => {
     console.log({data})
-    carsService.deleteById(data.carId).then(response => console.log(response))
+    carsService.deleteById(data.id).then(response => console.log(response))
   }
 
   return (
-    <>
-      <h3>Delete car by its id with this form:</h3>
+    <div className={classes.formWrapper}>
+      <h3>Delete car by its ID:</h3>
 
-      <form onSubmit={handleSubmit(deleteCarById)}>
+      <form className={classes.form} onSubmit={handleSubmit(deleteCarById)}>
         <div>
           <label> Car ID:
-            <input type="number" defaultValue={''} {...register('carId')}/>
+            &nbsp;
+            <input type="number" defaultValue={''} {...register('id')}/>
           </label>
         </div>
-        <button>Delete car</button>
+        {/*{errors.id && <span>{errors.id.message}</span>}*/}
+
+        <button className={classes.button}>Delete car</button>
       </form>
-    </>
+    </div>
   );
 };
 
