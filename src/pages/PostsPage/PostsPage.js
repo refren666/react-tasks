@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import {Outlet} from "react-router-dom";
 
 import {postService} from "../../services/post.service";
 import PostTitle from "../../components/PostTitle/PostTitle";
-import {Outlet} from "react-router-dom";
 
 import classes from './PostsPage.module.css'
 
