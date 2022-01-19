@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postService} from "../../../services/post.service";
 import PostDetails from "../../../components/PostDetails/PostDetails";
@@ -22,7 +22,12 @@ const SinglePostPage = () => {
 
   return (
     <div>
-      {post && <PostDetails post={post}/>}
+      <div>
+        {post && <PostDetails post={post}/>}
+      </div>
+      <div>
+        <Outlet/>
+      </div>
     </div>
   );
 };

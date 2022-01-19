@@ -9,7 +9,7 @@ const PostDetails = ({post}) => {
       <h3>Post #{id} from user #{userId}</h3>
       <h3><em>Title: {title}</em></h3>
       <p>Body: {body}</p>
-      <NavLink to={'/'}>
+      <NavLink to={'comments'} state={{...post}}>
         <button>Show comments</button>
       </NavLink>
     </div>

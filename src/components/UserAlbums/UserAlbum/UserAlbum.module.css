@@ -1,0 +1,7 @@
+.photosBtn {
+    border: none;
+    padding: 5px 12px;
+    background-color: gold;
+    font-weight: bold;
+    cursor: pointer;
+}

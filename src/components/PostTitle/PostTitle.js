@@ -10,7 +10,7 @@ const PostTitle = ({postInfo}) => {
     <div className={classes.postLink}>
       <NavLink
         to={id.toString()}
-        state={postInfo}>
+        state={{...postInfo}}>
         <i>#{id} {title}</i>
       </NavLink>
     </div>
