@@ -28,16 +28,18 @@ const EpisodePage = () => {
 
   console.log(charactersId)
 
+  // console.log(characters)
+
   useEffect(() => {
     characterService.getAllById(charactersId)
       .then(charactersArray => setCharacters(charactersArray))
 
     // IT WORKS
-    // fetch(`https://rickandmortyapi.com/api/character/1,2,3`)
+    // fetch('https://rickandmortyapi.com/api/character/1,2,3')
     //   .then(response => response.json())
     //   .then(charactersArray => setCharacters(charactersArray))
   }, [])
-
+  //
   // console.log(characters)
 
   return (
