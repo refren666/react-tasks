@@ -1,10 +1,17 @@
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Photo from "./components/Photo/Photo";
+import Menu from "./components/Menu/Menu";
 
 function App() {
   return (
-    <div>
-
-    </div>
+    <>
+      <Routes>
+        <Route path={'/'} element={<Menu/>}>
+          <Route path={'photo'} element={<Photo/>}/>
+        </Route>
+      </Routes>
+    </>
   );
 }
 
