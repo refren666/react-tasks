@@ -1,25 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link, Outlet} from "react-router-dom";
-import ApiService from "../../services/api.service";
 
 const Menu = () => {
-  const [catPhoto, setCatPhoto] = useState();
-  const catService = new ApiService('/users')
-  const car = new ApiService('/car')
-  const girl = new ApiService('/girl')
-  const dog = new ApiService('/dog')
-  const notebook = new ApiService('/notebook')
-
-  // useEffect(() => {
-  //   ApiService.getPhoto().
-  // }, [])
-  const getCatPhoto = () => {
-    fetch('https://loremflickr.com/320/240/cat')
-      .then(response => response.json())
-      .then(photo => setCatPhoto(photo))
-    console.log(catPhoto)
-  }
-
   return (
     <div style={{
       display: 'flex',
@@ -31,19 +13,19 @@ const Menu = () => {
         flexDirection: 'column',
         rowGap: '15px'
       }}>
-        <Link to={'cat'}>
+        <Link to={'cat-photo'}>
           <button>Cat</button>
         </Link>
-        <Link to={'car'}>
+        <Link to={'car-photo'}>
           <button>Car</button>
         </Link>
-        <Link to={'photo'}>
-          <button>Girl</button>
-        </Link>
-        <Link to={'dog'}>
+        <Link to={'dog-photo'}>
           <button>Dog</button>
         </Link>
-        <Link to={'notebook'}>
+        <Link to={'girl-photo'}>
+          <button>Girl</button>
+        </Link>
+        <Link to={'notebook-photo'}>
           <button>Notebook</button>
         </Link>
       </nav>
@@ -54,4 +36,4 @@ const Menu = () => {
     </div>
 )}
 
-export default Menu;
+export {Menu};

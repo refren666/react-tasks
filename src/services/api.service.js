@@ -1,6 +1,10 @@
-export default function ApiService(endpoint) {
-  this.getPhoto = () => {
-    fetch(`https://jsonplaceholder.typicode.com${endpoint}`)
-      .then(response => response.json())
-  }
-}
+import axios from "axios";
+
+import baseURL from "../config/urls";
+
+const axiosService = axios.create({
+  baseURL,
+  responseType: 'blob'
+});
+
+export default axiosService;
