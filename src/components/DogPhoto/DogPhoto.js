@@ -4,27 +4,24 @@ import {imageService} from "../../services/image.service";
 import Loader from "../Loader/Loader";
 
 const DogPhoto = () => {
+  const [blobItem, setBlobItem] = useState();
   const [trigger, setTrigger] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     imageService.getDog().then(blob => {
-      document.getElementById('dogPhoto').src = URL.createObjectURL(blob);
+      setBlobItem(URL.createObjectURL(blob));
       setLoading(false);
     })
   }, [trigger])
 
   return (
     <div>
-      {loading && <Loader/>}
+      {loading ? <Loader/> : <div>
+        <img src={blobItem} alt="photo"/>
+      </div>}
 
-      <div>
-        <div>
-          <img src="" alt="photo" id={'dogPhoto'}/>
-        </div>
-
-        <button onClick={setTrigger}>Update</button>
-      </div>
+      <button onClick={setTrigger}>Update</button>
     </div>
   );
 };

@@ -4,23 +4,22 @@ import {imageService} from "../../services/image.service";
 import Loader from "../Loader/Loader";
 
 const CarPhoto = () => {
+  const [blobItem, setBlobItem] = useState();
   const [trigger, setTrigger] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     imageService.getCar().then(blob => {
-      document.getElementById('carPhoto').src = URL.createObjectURL(blob);
-      setLoading(false)
+      setBlobItem(URL.createObjectURL(blob));
+      setLoading(false);
     })
   }, [trigger])
 
   return (
     <div>
-      {loading && <Loader/>}
-
-      <div>
-        <img src="" alt="photo" id={'carPhoto'}/>
-      </div>
+      {loading ? <Loader/> : <div>
+        <img src={blobItem} alt="photo"/>
+      </div>}
 
       <button onClick={setTrigger}>Update</button>
     </div>
