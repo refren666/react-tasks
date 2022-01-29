@@ -1,5 +1,7 @@
 import React, {useReducer} from 'react';
+
 import Cat from "../components/Cat/Cat";
+import Dog from "../components/Dog/Dog";
 
 const initialFormState = {
   catName: '',
@@ -8,15 +10,26 @@ const initialFormState = {
   dogNamesArray: []
 }
 
+const actions = {
+  handleInput: 'handle-input',
+  addCat: 'add-cat',
+  addDog: 'add-dog',
+  deleteCat: 'delete-cat',
+  deleteDog: 'delete-dog',
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'HANDLE INPUT':
-      return {...state, [action.field]: action.payload}
-    case 'add cat':
-      state.catNamesArray.push(state.catName);
-      state.catName = '';
-      state.dogName = '';
-      return state
+    case actions.handleInput:
+      return {...state, [action.key]: action.value}
+    case actions.addCat:
+      return {...state, catNamesArray: [...state.catNamesArray , state.catName]}
+    case actions.addDog:
+      return {...state, dogNamesArray: [...state.dogNamesArray , state.dogName]}
+    case actions.deleteCat:
+      return {...state, catNamesArray: [...state.catNamesArray.filter(cat => cat !== action.payload.cat)]}
+    case actions.deleteDog:
+      return {...state, dogNamesArray: [...state.dogNamesArray.filter(dog => dog !== action.payload.dog)]}
     default:
       return state;
   }
@@ -27,21 +40,28 @@ const UseReducer_CW = () => {
 
   const inputHandler = (e) => {
     dispatch({
-      type: 'HANDLE INPUT',
-      field: e.target.name,
-      payload: e.target.value
+      type: actions.handleInput,
+      key: e.target.name,
+      value: e.target.value
     })
   }
 
   const addCat = (e) => {
     e.preventDefault();
-    dispatch({type: 'add cat'})
-    console.log(state.catNamesArray)
+    !state.catNamesArray.includes(state.catName) && dispatch({type: actions.addCat})
   }
 
   const addDog = (e) => {
     e.preventDefault();
+    !state.dogNamesArray.includes(state.dogName) && dispatch({type: actions.addDog})
+  }
 
+  const deleteCat = (cat) => {
+    dispatch({type: actions.deleteCat, payload: {cat}})
+  }
+
+  const deleteDog = (dog) => {
+    dispatch({type: actions.deleteDog, payload: {dog}})
   }
 
   return (
@@ -59,9 +79,28 @@ const UseReducer_CW = () => {
 
       <hr/>
 
-      {state.catNamesArray.length ? state.catNamesArray.map(
-        (catNames, index) => <Cat key={index} catNames={catNames}/>
-      ) : null}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)'
+      }}>
+        <div>
+          {state.catNamesArray.length ? state.catNamesArray.map(
+            (catName, index) => <Cat
+              key={index}
+              catName={catName}
+              deleteCat={deleteCat}/>
+          ) : null}
+        </div>
+
+        <div>
+          {state.dogNamesArray.length ? state.dogNamesArray.map(
+            (dogName, index) => <Dog
+              key={index}
+              dogName={dogName}
+              deleteDog={deleteDog}/>
+          ) : null}
+        </div>
+      </div>
 
     </div>
 

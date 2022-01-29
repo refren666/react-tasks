@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Cat = ({catNames}) => {
-  console.log(catNames)
+const Cat = ({catName, deleteCat}) => {
   return (
-    <div>
-      Name: {catNames}
+    <div style={{
+      marginBottom: '10px'
+    }}>
+      <span>Cat name: {catName}</span>
+      <button onClick={() => deleteCat(catName)}>Delete cat's name</button>
     </div>
   );
 };
