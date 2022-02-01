@@ -1,2 +1,2 @@
 export * from './store.config';
-export * from './car.slice';
+export * from './cars.slice';

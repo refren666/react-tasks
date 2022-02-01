@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
+
 import {deleteCarById} from "../../store";
 
 const Car = ({car}) => {
@@ -20,6 +21,7 @@ const Car = ({car}) => {
         <div>Model: {year}</div>
       </div>
       <button onClick={() => dispatch(deleteCarById({id: id}))}>Delete</button>
+      <button>Update</button>
     </div>
   );
 };

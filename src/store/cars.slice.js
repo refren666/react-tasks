@@ -1,4 +1,5 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+
 import {carService} from "../services";
 
 export const getAllCars = createAsyncThunk(
@@ -37,7 +38,7 @@ export const deleteCarById = createAsyncThunk(
 )
 
 // createSlice - створює окрему частинку стору, і методи(екшени) для його управління
-const carSlice = createSlice({
+const carsSlice = createSlice({
   name: 'carSlice',
   initialState: {
     cars: [],
@@ -51,10 +52,13 @@ const carSlice = createSlice({
     },
     deleteCar: (state, action) => {
       state.cars = state.cars.filter(car => car.id !== action.payload.id)
+    },
+    updateCar: (state, action) => {
+
     }
   },
   extraReducers: {
-    [getAllCars.pending]: (state, action) => {
+    [getAllCars.pending]: (state) => {
       // pending allows to show Loading component
       state.status = 'pending'
       state.error = null
@@ -66,14 +70,15 @@ const carSlice = createSlice({
     [getAllCars.rejected]: (state, action) => {
       state.status = 'rejected'
       state.error = action.payload
+      // action = result of rejectWithValue(e.message); to be precise, the message of error from catch block
     }
   }
 })
 
 // carReducer = carSlice (під капотом - вже готовий редюсер з світчем і готовими кейсами під екшени + initialState)
-const carReducer = carSlice.reducer;
+const carReducer = carsSlice.reducer;
 
 // carSlice.actions = carSlice --> reducers ;
-export const {addCar, deleteCar} = carSlice.actions;
+export const {addCar, deleteCar} = carsSlice.actions;
 
 export default carReducer;

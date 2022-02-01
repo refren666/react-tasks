@@ -1,5 +1,7 @@
 import axios from "axios";
 
-import baseURL from "../config/urls";
+import {carsURL, placeholderURL} from "../config";
 
-export const axiosService = axios.create({ baseURL });
+export const axiosCarService = axios.create({ baseURL: carsURL });
+
+export const axiosPlaceholderService = axios.create({ baseURL: placeholderURL });
