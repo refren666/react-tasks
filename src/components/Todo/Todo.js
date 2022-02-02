@@ -25,7 +25,7 @@ const Todo = ({todo}) => {
       }>
         {todo.todo}
       </span>
-      <button onClick={() => deleteTodoItem(todo.id)}>Delete</button>
+      <button className={'button'} onClick={() => deleteTodoItem(todo.id)}>Delete</button>
     </div>
   );
 };

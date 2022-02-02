@@ -22,7 +22,7 @@ const Form = () => {
     <>
       <form onSubmit={sendData}>
         <input type="text" ref={inputEl}/>
-        <button>Add</button>
+        <button className={'button'}>Add</button>
       </form>
 
       <hr/>
