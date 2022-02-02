@@ -1,11 +1,10 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
-import todoListReducer, {changeStatus, deleteTodo} from "../../store/todoList.slice";
+import {changeStatus, decreaseCompletedTodo, deleteTodo, increaseCompletedTodo} from "../../store/todoList.slice";
 import classes from "./Todo.module.css";
 
 const Todo = ({todo}) => {
-  const {todos} = useSelector(state => state['todoListReducer'])
   const dispatch = useDispatch();
 
   const deleteTodoItem = (id) => {
@@ -14,18 +13,24 @@ const Todo = ({todo}) => {
 
   const changeTodoStatus = (id) => {
     dispatch(changeStatus({id}))
-    console.log(todos)
+    console.log(todo)
   }
 
   return (
     <div className={classes.wrapper}>
-      <input onChange={() => changeTodoStatus(todo.id)} type="checkbox"/>
+      <input onChange={() => {
+        changeTodoStatus(todo.id)
+        todo.completed ? dispatch(decreaseCompletedTodo()) : dispatch(increaseCompletedTodo())
+      }} type="checkbox"/>
       <span className={
         todo.completed ? classes.done : classes.unfinished
       }>
         {todo.todo}
       </span>
-      <button className={'button'} onClick={() => deleteTodoItem(todo.id)}>Delete</button>
+      <button className={'button'} onClick={() => {
+        deleteTodoItem(todo.id)
+        todo.completed && dispatch(decreaseCompletedTodo())
+      }}>Delete</button>
     </div>
   );
 };

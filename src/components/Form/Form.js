@@ -6,8 +6,9 @@ import Todo from "../Todo/Todo";
 
 const Form = () => {
   const dispatch = useDispatch();
-  const {todos} = useSelector(state => state.todoListReducer)
+  const {todos, todosCounter, completedTodosCounter} = useSelector(state => state.todoListReducer)
   const inputEl = useRef(null)
+
 
   const sendData = (e) => {
     e.preventDefault();
@@ -15,11 +16,12 @@ const Form = () => {
 
     dispatch(addTodo({todoItem}))
     inputEl.current.value = '';
-    // console.log(todos)
   }
 
   return (
     <>
+      <h1>All: {todosCounter}</h1>
+      <h1>Completed: {completedTodosCounter}</h1>
       <form onSubmit={sendData}>
         <input type="text" ref={inputEl}/>
         <button className={'button'}>Add</button>
