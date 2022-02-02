@@ -1,6 +1,6 @@
 import React from 'react';
+import {Comments} from "../../components";
 
-import Comments from "../../components/Comments/Comments";
 
 const CommentsPage = () => {
   return (
@@ -10,4 +10,4 @@ const CommentsPage = () => {
   );
 };
 
-export default CommentsPage;
+export {CommentsPage};

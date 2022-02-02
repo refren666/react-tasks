@@ -3,3 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.button {
+    border: none;
+    border-radius: 5px;
+    color: snow;
+    background: firebrick;
+    padding: 8px 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}

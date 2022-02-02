@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
 import {getAllComments} from "../../store/comments.slice";
-import Comment from "./Comment/Comment";
+import {Comment} from "./Comment/Comment";
 
 const Comments = () => {
   const {comments} = useSelector(state => state.commentReducer);
@@ -21,4 +22,4 @@ const Comments = () => {
   );
 };
 
-export default Comments;
+export {Comments};

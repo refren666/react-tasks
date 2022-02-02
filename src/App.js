@@ -2,11 +2,8 @@ import {Route, Routes} from 'react-router-dom';
 
 import './App.css';
 // import {useState} from "react";
-import CarsPage from "./pages/CarsPage/CarsPage";
-import UsersPage from "./pages/UsersPage/UsersPage";
-import PostsPage from "./pages/PostsPage/PostsPage";
-import CommentsPage from "./pages/CommentsPage/CommentsPage";
-import Layout from "./components/Layout/Layout";
+import {Layout} from "./components";
+import {CarsPage, CommentsPage, PostsPage, UsersPage} from "./pages";
 
 function App() {
   // cars - array of objects!

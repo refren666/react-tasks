@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Posts from "../../components/Posts/Posts";
+import {Posts} from "../../components";
 
 const PostsPage = () => {
   return (
@@ -10,4 +10,4 @@ const PostsPage = () => {
   );
 };
 
-export default PostsPage; 
+export {PostsPage};
